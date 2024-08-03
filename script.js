@@ -4,7 +4,16 @@ const app = () => {
   const second_hand = document.getElementById("second_hand");
   const minute_hand = document.getElementById("minute_hand");
   const hour_hand = document.getElementById("hour_hand");
+  const digital_time1 = document.getElementById("digital");
+  const digital_time2 = document.getElementById("digital2");
   let hour, minute, second, hr_degree, sec_degree, min_degree;
+
+  function adjustFont() {
+    let ids = document.querySelectorAll('.font');
+    ids.forEach(element => {
+        element.style.fontSize = `${0.1 * element.offsetHeight}px`;
+    });
+  }
 
   // Start
   let udpateTime = () => {
@@ -18,22 +27,22 @@ const app = () => {
       hr_degree = hour === "12" ? 0 : hour * hour_degree;
       // Plays chime on hour
       if (minute === 0 && second === 0) {
-        new Audio("hour_chime.mp3").play();
+        new Audio("sounds/hour_chime.mp3").play();
       }
       sec_degree = second * unit_degree;
       min_degree = minute * unit_degree;
 
-      console.log(hour);
-      console.log(date.getMinutes());
-      console.log(date.getSeconds());
       second_hand.style.transform = `rotate(${sec_degree}deg)`;
       hour_hand.style.transform = `rotate(${hr_degree}deg)`;
       minute_hand.style.transform = `rotate(${min_degree}deg)`;
-      new Audio("second_chime.mp3").play();
+      digital_time1.innerHTML = date.toLocaleString("en-US", { hour: "numeric",minute:"numeric", hour12: true });
+      digital_time2.innerHTML = date.toLocaleString("en-US", { hour: "numeric",minute:"numeric", hour12: false });
+    //   new Audio("sounds/second_chime.mp3").play();
       udpateTime();
     }, 1000);
   };
 
+  adjustFont();
   udpateTime();
 };
 
