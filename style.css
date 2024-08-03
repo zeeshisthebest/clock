@@ -1,0 +1,166 @@
+:root {
+    --dial-height: 360px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 400px;
+    width: 400px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    border-radius: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.outer {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 4px solid grey;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.inner {
+    height: var(--dial-height);
+    width: var(--dial-height);
+    box-sizing: border-box;
+    border: none;
+    border-radius: 100%;
+    position: absolute;
+    background-color: transparent;
+    top: 5%;
+    left: 5%;
+}
+
+.mark {
+    height: calc(var(--dial-height) / 2);
+    width: min-content;
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    transform-origin: 50% 100%;
+    translate: -50% 0%;
+}
+
+.twelve, .six, .nine, .three {
+    color: #555
+}
+
+.twelve {
+    transform: rotate(0deg);
+}
+
+.eleven {
+    transform: rotate(330deg);
+}
+
+.ten {
+    transform: rotate(300deg);
+}
+
+.nine {
+    transform: rotate(270deg);
+}
+
+.eight {
+    transform: rotate(240deg);
+}
+
+.seven {
+    transform: rotate(210deg);
+}
+
+.six {
+    transform: rotate(180deg);
+}
+
+.five {
+    transform: rotate(150deg);
+}
+
+.four {
+    transform: rotate(120deg);
+}
+
+.three {
+    transform: rotate(90deg);
+}
+
+.two {
+    transform: rotate(60deg);
+}
+
+.one {
+    transform: rotate(30deg);
+}
+
+/* .center_dot{
+    position: absolut;
+    height: 15px;
+    width: 15px;
+    left:50%;
+    top:50%;
+    z-index: 30;
+    translate:-50% -50%;
+    background-color: #555;
+    border-radius: 100%;
+} */
+
+.second_hand,
+.minute_hand,
+.hour_hand {
+    width: 4px;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    translate: -50% 0px;
+    transform-origin: 50% 90%;
+    border-top-left-radius:100% ;
+    border-top-right-radius:100% ;
+    border-bottom-left-radius:100% ;
+    border-bottom-right-radius:100% ;
+}
+
+.second_hand {
+    --height: 150px;
+    height: var(--height);
+    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    transform: rotate(10deg);
+    background-color: maroon;
+    z-index: 20;
+}
+
+.minute_hand {
+    --height: 140px;
+    height: var(--height);
+    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    background-color: black;
+    transform: rotate(20deg);
+    z-index: 15;
+}
+
+.hour_hand {
+    --height: 110px;
+    height: var(--height);
+    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    background-color: #777;
+}
+
+.font {
+    font-weight: 800;
+    font-size: 30px;
+    color: #999;
+    font-family: "Courier New", Courier, monospace;
+}
