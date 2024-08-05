@@ -148,7 +148,7 @@ body {
 .second_hand {
     --height: 35.7%;
     height: var(--height);
-    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    top: calc(50% - var(--height) * 0.9);
     transform: rotate(10deg);
     background-color: maroon;
     z-index: 20;
@@ -157,7 +157,7 @@ body {
 .minute_hand {
     --height: 35%;
     height: var(--height);
-    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    top: calc(50% - var(--height) * 0.9);
     background-color: black;
     transform: rotate(20deg);
     z-index: 15;
@@ -166,7 +166,7 @@ body {
 .hour_hand {
     --height: 27%;
     height: var(--height);
-    top: calc((var(--dial-height) / 2) - var(--height) * 0.9);
+    top: calc(50% - var(--height) * 0.9);
     background-color: #777;
 }
 

@@ -29,15 +29,18 @@ const app = () => {
       if (minute === 0 && second === 0) {
         new Audio("sounds/hour_chime.mp3").play();
       }
-      sec_degree = second * unit_degree;
-      min_degree = minute * unit_degree;
+      sec_degree = second * unit_degree + 2;
+      min_degree = (minute) * unit_degree;
 
       second_hand.style.transform = `rotate(${sec_degree}deg)`;
       hour_hand.style.transform = `rotate(${hr_degree}deg)`;
       minute_hand.style.transform = `rotate(${min_degree}deg)`;
+      setTimeout(() => {
+        second_hand.style.transform = `rotate(${sec_degree-2}deg)`;
+      }, 100);
       digital_time1.innerHTML = date.toLocaleString("en-US", { hour: "numeric",minute:"numeric", hour12: true });
       digital_time2.innerHTML = date.toLocaleString("en-US", { hour: "numeric",minute:"numeric", hour12: false });
-    //   new Audio("sounds/second_chime.mp3").play();
+      // new Audio("sounds/second_chime.mp3").play();
       udpateTime();
     }, 1000);
   };
