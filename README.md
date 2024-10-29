@@ -1,7 +1,3 @@
-Here’s a README for your custom clock project:
-
----
-
 # Circular Analog-Digital Clock
 
 ![Clock Screenshot](screenshot.png)
